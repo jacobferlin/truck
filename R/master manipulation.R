@@ -14,7 +14,7 @@ add_master_row <- function() {
 
 read_master <- function() {
   master <- readRDS("master.RDS")
-  assign("master", master, envir = global_env())
+  assign("master", master, envir = globalenv())
 }
 
 save_master <- function() {
