@@ -1,22 +1,27 @@
+#' @export
 init_master <- function() {
-  tibble(id = NA_integer_,
+  dplyr::tibble(id = NA_integer_,
          data = list(),
          data_prep = list(),
          model = list(),
          eval = NA_real_)
 }
 
+#' @export
 add_master_row <- function() {
   new_id <- nrow(master) + 1
-  master %<>% bind_rows(tibble(id = new_id))
+  master <- dplyr::bind_rows(master,
+                             dplyr::tibble(id = new_id))
   assign("master", master, envir = globalenv())
 }
 
+#' @export
 read_master <- function() {
   master <- readRDS("master.RDS")
   assign("master", master, envir = globalenv())
 }
 
+#' @export
 save_master <- function() {
   saveRDS(master, "master.RDS")
 }
