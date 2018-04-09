@@ -1,10 +1,11 @@
 #' @export
 init_master <- function() {
-  dplyr::tibble(id = NA_integer_,
-         data = list(),
-         data_prep = list(),
-         model = list(),
-         eval = NA_real_)
+  master <- dplyr::tibble(id = NA_integer_,
+                          data = list(),
+                          data_prep = list(),
+                          model = list(),
+                          eval = NA_real_)
+  assign("master", master, envir = globalenv())
 }
 
 #' @export
